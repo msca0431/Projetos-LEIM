@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+	<canvas id="myCanvas" width="400" height="300" style="border:1px solid #000000;"> </canvas>
+	<script>
+		// Get the HTML canvas element with the ID "myCanvas"
+		let c = document.getElementById("myCanvas");
+
+		// Get a 2D rendering context for the canvas
+		let ctx = c.getContext("2d");
+
+		// Set the fill color to red
+		ctx.fillStyle = "#FF0000";
+
+		// Draw a red filled rectangle at (0, 0) with width 150 and height 75
+		ctx.fillRect(0, 0, 150, 75);
+
+		// Move the drawing point to (150, 150)
+		ctx.moveTo(150, 150);
+
+		// Draw a black diagonal line from (150, 150) to (250, 250)
+		ctx.lineTo(250, 250);
+
+		// Stroke (outline) the line
+		ctx.stroke();
+
+		// Start a new drawing path
+		ctx.beginPath();
+
+		// Draw a black circle centered at (150, 200) with a radius of 40
+		ctx.arc(150, 200, 40, 0, 2 * Math.PI);
+
+		// Stroke (outline) the circle
+		ctx.stroke();
+
+		// Set the font for text to "30px Arial"
+		ctx.font = "30px Arial";
+
+		// Draw the text "Hello World" at (200, 50)
+		ctx.fillText("Hello World", 200, 50);
+	</script>
+</body>
+
+</html>

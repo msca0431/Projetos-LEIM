@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+
+<body>
+    <script>
+        class Car {
+            constructor(brand) {
+                this.br = brand;
+                this.theEngine = new Engine("mercedes");
+            }
+
+            getBrand() {
+                return this.br;
+            }
+        }
+
+        class Engine {
+            constructor(brand) {
+                this.br = brand;
+                this.power = "192cv";
+            }
+
+            setPower(pwr) {
+                this.power = pwr;
+            }
+        }
+
+        let myCar = new Car("BMW");
+        console.log(myCar.getBrand());
+    </script>
+</body>
+
+</html>

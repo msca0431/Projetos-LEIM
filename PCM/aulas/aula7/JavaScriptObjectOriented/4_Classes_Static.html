@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+
+<body>
+<script>
+
+    class Person {
+        constructor(firstname, lastname, age, eyecolor) {
+
+            this.firstname = firstname;
+            this._lastname = lastname;
+            this.ag = age;
+            this.eyecolor = eyecolor;
+        }
+
+        static foo () {
+            console.log("Class method. Do not need an instance to be called");
+        }
+
+        get lastname() {
+            return this._lastname;
+        }
+
+        set lastname(name) {
+            this._lastname = name;
+        }
+
+        walk () {
+            console.log(this.firstname + ' is walking.');
+        }
+    }
+
+    let p = new Person("R", "J", "50", "blue");
+    //p.foo(); // ERRO
+    Person.foo();
+
+</script>
+</body>
+</html>

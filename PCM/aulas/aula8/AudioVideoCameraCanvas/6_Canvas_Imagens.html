@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+
+<body>
+    <canvas id="myCanvas" width="400" height="300" style="border:1px solid #000000;"></canvas>
+    <script>
+        // Get the HTML canvas element with the ID "myCanvas" and store it in the variable 'c'
+        let c = document.getElementById("myCanvas");
+
+        // Get a 2D rendering context for the canvas and store it in the variable 'ctx'
+        let ctx = c.getContext("2d");
+
+        // Create a new Image object and store it in the variable 'im'
+        let im = new Image();
+
+        // Define an 'onload' event handler for the 'im' Image object. This function will execute when the image is fully loaded.
+        im.onload = function () {
+            // Inside the 'onload' function:
+            
+            // Draw the image 'im' onto the canvas 'ctx' at position (100, 100) with a width of 100 and a height of 100.
+            ctx.drawImage(im, 150, 100, 100, 100);
+        };
+
+        // Set the 'src' attribute of the 'im' Image object to "images/annika.jpg". This triggers the image to start loading.
+        im.src = "images/annika.jpg";
+    </script>
+</body>
+
+</html>

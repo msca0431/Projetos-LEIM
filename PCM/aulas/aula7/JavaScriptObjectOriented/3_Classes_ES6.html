@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+
+<body>
+	<script>
+		class Person {
+			constructor(firstname, lastname, age, eyecolor) {
+
+				this.firstname = firstname;
+				this._lastname = lastname;
+				this.ag = age;
+				this.eyecolor = eyecolor;
+			}
+
+			get lastname() {
+				return this._lastname;
+			}
+
+			set lastname(name) {
+				this._lastname = name;
+			}
+
+			walk() {
+				console.log(this.firstname + ' is walking.');
+			}
+		}
+
+		let bob = new Person("Bob", "Rilly", "20", "green");
+		bob.walk(); // Outputs 'Bob is walking.'
+		bob.lastname = "Mike";
+		console.log(bob._lastname); // // Outputs 'Mike'
+		console.log(bob.lastname); // // Outputs 'Mike'
+		console.log(bob.__proto__.hasOwnProperty('walk'));
+	</script>
+</body>
+
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+
+<body>
+    <h1>Simple web camera display demo</h1>
+    <video id="video" width="640" height="480" autoplay></video>
+
+    <script>
+        // Add an event listener to execute the 'WebCameraVideo' function when the DOM is fully loaded.
+        window.addEventListener("DOMContentLoaded", WebCameraVideo, false);
+
+        // Define the 'WebCameraVideo' function.
+        function WebCameraVideo () {
+            // Get a reference to the <video> element.
+            let video = document.getElementById("video");
+
+            // Define an object 'videoObj' to request access to the user's webcam video.
+            let videoObj = {"video": true};
+
+            // Define an error handling function 'errBack'.
+            let errBack = function (error) {
+                console.log("Video capture error: ", error.code);
+            };
+
+            // Define a function 'getStream' to handle the successful acquisition of the video stream.
+            let getStream = function (stream) {
+                // Set the video element's source to the acquired video stream and start playing it.
+                // The commented line below is an alternative approach to setting the video source.
+                // video.src = window.URL.createObjectURL(stream);
+                video.srcObject = stream;
+                video.play();
+            };
+
+            // Check for browser support for getUserMedia.
+            if (navigator.getUserMedia) {
+                navigator.getUserMedia(videoObj, getStream, errBack);
+            }
+            // Check for Firefox (Mozilla) browser support.
+            else if (navigator.mozGetUserMedia) {
+                navigator.mozGetUserMedia(videoObj, getStream, errBack);
+            }
+            // Check for WebKit-based browser support (e.g., Google Chrome).
+            else if (navigator.webkitGetUserMedia) {
+                navigator.webkitGetUserMedia(videoObj, getStream, errBack);
+            }
+        }
+    </script>
+</body>
+
+</html>

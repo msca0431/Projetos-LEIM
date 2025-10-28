@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+</head>
+<body>
+    <div id="pai">
+    <div>Filho 1</div>
+    <div>Filho 2</div>
+    <div>Filho 3</div>
+</div>
+
+<script>
+const pai = document.getElementById('pai');
+console.log(pai.children[-1]); //  undefined
+console.log(pai.lastElementChild); // <div>Filho 3</div>
+console.log(pai.children[pai.children.length - 2]); // <div>Filho 2</div>
+</script>
+</body>
+</html>

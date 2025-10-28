@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+
+<body>
+    <script>
+        function Person(firstname, lastname, age, eyecolor) {
+            this.firstname = firstname;
+            this._lastname = lastname;
+            this.age = age;
+            this.eyecolor = eyecolor;
+        }
+
+        Person.prototype.walk = function () {
+            console.log(this.firstname + ' is walking.');
+        };
+
+        Person.prototype.getName = function () {
+            return this._lastname;
+        };
+
+        Person.prototype.changeName = function (name) {
+            this._lastname = name;
+        };
+
+        let bob = new Person("Bob", "Rilly", "20", "green");
+		bob.walk(); // Outputs 'Bob is walking.'
+
+		let myFather = new Person("John", "Rilly", "50", "blue");
+		let myMother = new Person("Sally", "Rally", "48", "green");
+		
+        myMother.lastname = "Reilly";
+		myMother.changeName("Rilly");
+		console.log(myMother.getName()); //Rilly
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+
+<body>
+    <script>
+        class DrawingObjects {
+            constructor(px, py, name) {
+                this.posx = px;
+                this.posy = py;
+                this.name = name;
+            }
+
+            draw(cnv) {
+            }
+
+            mouseOver(mx, my) {
+            }
+
+            sqDist(px1, py1, px2, py2) {
+                let xd = px1 - px2;
+                let yd = py1 - py2;
+
+                return ((xd * xd) + (yd * yd));
+            }
+        }
+
+        class Rect extends DrawingObjects {
+            constructor(px, py, w, h, c) {
+                super(px, py, 'R');
+                this.w = w;
+                this.h = h;
+                this.color = c;
+            }
+
+            draw(cnv) {
+                let ctx = cnv.getContext("2d");
+
+                ctx.fillStyle = this.color;
+                ctx.fillRect(this.posx, this.posy, this.w, this.h);
+
+            }
+
+            mouseOver(mx, my) {
+                if ((mx >= this.posx) && (mx <= (this.posx + this.w)) && (my >= this.posy) && (my <= (this.posy + this.h))) {
+                    return true;
+                }
+                return false;
+            }
+        }
+
+        //Old school version using "prototype" directly.
+        // function DrawingObject(x, y, name) {
+        //     this.posx = x;
+        //     this.posy = y;
+        //     this.name = name;
+        // }
+
+        // DrawingObject.prototype.draw = function (cnv) {
+        //     throw new Error("draw method must be implemented in the subclass.");
+        // };
+
+        // DrawingObject.prototype.mouseOver = function (mx, my) {
+        //     throw new Error("mouseOver method must be implemented in the subclass.");
+        // };
+
+        // DrawingObject.prototype.sqDist = function (x1, y1, x2, y2) {
+        //     let xd = x1 - x2;
+        //     let yd = y1 - y2;
+        //     return xd * xd + yd * yd;
+        // };
+
+        // function Rect(x, y, w, h, c) {
+        //     this.w = w;
+        //     this.h = h;
+        //     this.color = c;
+
+        //     DrawingObject.call(this, x, y, 'R');
+        // }
+
+        // Rect.prototype = Object.create(DrawingObject.prototype);
+        // Rect.prototype.constructor = Rect;
+
+        // Rect.prototype.draw = function (cnv) {
+        //     let ctx = cnv.getContext("2d");
+
+        //     ctx.fillStyle = this.color;
+        //     ctx.fillRect(this.posx, this.posy, this.w, this.h);
+        // };
+
+        // Rect.prototype.mouseOver = function (mx, my) {
+        //     // Implement the mouseOver behavior for Rect
+        //     // You can check if the mouse coordinates are over the rectangle here
+        // };
+
+    </script>
+</body>
+
+</html>

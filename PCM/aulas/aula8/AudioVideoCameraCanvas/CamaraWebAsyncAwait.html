@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+
+<body>
+    <h1>Simple web camera display demo</h1>
+    <video id="video" width="640" height="480" autoplay></video>
+    <script>
+        // This JavaScript code starts running when the DOM content is fully loaded.
+        window.addEventListener("DOMContentLoaded", WebCameraVideo, false);
+
+        // Define the async function to set up the webcam video.
+        async function WebCameraVideo() {
+            try {
+                // Get a reference to the video element in the HTML.
+                const video = document.getElementById("video");
+
+                // Define an object to specify that we want video from the user's webcam.
+                const videoObj = { "video": true };
+
+                // Use the newer Promise-based API to request access to the user's webcam.
+                const stream = await navigator.mediaDevices.getUserMedia(videoObj);
+
+                // Set the video element's source to the acquired video stream.
+                video.srcObject = stream;
+
+                // Start playing the video.
+                video.play();
+            } catch (error) {
+                // Handle any errors when accessing the webcam.
+                console.error("Video capture error: ", error);
+            }
+        }
+    </script>
+</body>
+
+</html>

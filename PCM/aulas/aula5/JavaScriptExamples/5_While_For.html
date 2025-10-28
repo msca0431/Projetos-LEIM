@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="pt">
+	<head>
+		<meta charset="UTF-8">
+		<script>
+			function myFunction()
+			{
+				let x = " ", i = 0;
+				while (i < 5) {
+					x += "O número é " + i + "<br>";
+					i++;
+				}
+				document.getElementById("demo").innerHTML = x;
+			}
+		</script>
+	</head>
+	
+	<body>
+		<p>Clique no botão para repetir um bloco de instruções enquanto <em>i</em> é menor que 5.</p>
+		<button onclick="myFunction()">Try it</button>
+		<p id="demo"></p>
+	</body>
+</html>

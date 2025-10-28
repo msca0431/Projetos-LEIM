@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <button onclick="adicionar()">Adicionar</button>
+    <button onclick="remover()">Remover</button>
+    <div id="container"></div>
+
+    <script>
+        function adicionar() {
+            const novo = document.createElement('p');
+            novo.textContent = 'Novo elemento';
+            document.getElementById('container').appendChild(novo);
+        }
+        function remover() {
+            const container = document.getElementById('container');
+            if (container.lastChild) container.removeChild(container.lastChild);
+        }
+    </script>
+</body>
+</html>

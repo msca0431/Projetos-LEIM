@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Playing a Video File </title>
+    <style>
+        #progressBar {
+            border:1px solid #aaa;
+            color:#fff;
+            width:292px;
+            height:20px;
+        }
+        #played {
+            background-color:#aaa;
+            height:20px;
+            display:inline-block;
+        }
+    </style>
+
+    <script src="js/VideoPlayer_manager6.js"></script>
+</head>
+<body>
+<header>
+    <h1>Video Player</h1>
+</header>
+
+<section id="playerVideo">
+    <video>
+        <source src="video/13_MissionImpossible_KyleCooper.webm" type="video/webm">
+    </video>
+
+    <div id="controls">
+        <div id="progressBar"><span id="played"></span></div>
+        <button id="playpause" alt="play" title="play" onclick="togglePlay()">play</button>
+        <button id="stop" alt="stop" title="stop" onclick="stopVideo()">stop</button>
+        <button id="rewind" alt="rewind" title="rewind" onclick="changePlaybackSpeed('-');" >&laquo;</button>
+        <button id="ffwd" alt="fast forward" title="fast forward" onclick="changePlaybackSpeed('+');" >&raquo;</button>
+        <button id="volumeDown" alt="decrease volume" title="-" onclick="changeVolume('-')">-</button>
+        <button id="volumeUp" alt="increase volume" title="+" onclick="changeVolume('+')">+</button>
+        <button id="mute" alt="mute" title="mute" onclick="toggleMute()">mute</button>
+    </div>
+</section>
+
+<section id='start'>
+    <script>window.onload = new_videoPlayer;</script>
+</section>
+
+</body>
+</html>

@@ -1,0 +1,21 @@
+h1{
+    color: red;
+    text-align: left;
+    font-size: 8pt;	   	
+}
+
+a:hover{
+    color: yellow;	
+}
+
+#para1{
+    text-align: center;
+    color: black;
+} 
+
+.center{
+    text-align: right;
+}
+	
+
+

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <title>Guessing Game</title>
+</head>
+<body>
+<input type="number" id="guess" placeholder="Advinha um número (1-100)">
+<button id="check">Verificar</button>
+<p id="result"></p>
+
+<script>
+  const secretNumber = Math.floor(Math.random() * 100) + 1;
+  const input = document.getElementById("guess");
+  const checkButton = document.getElementById("check");
+  const result = document.getElementById("result");
+
+  checkButton.addEventListener("click", () => {
+    const guess = parseInt(input.value);
+    if (guess === secretNumber) {
+      result.textContent = "Parabéns, encontraste! !";
+      result.style.color = "green";
+      document.body.style.backgroundColor = "#aaffaa";
+    } else if (guess < secretNumber) {
+      result.textContent = "Muito pequeno!";
+      result.style.color = "red";
+    } else {
+      result.textContent = "Muito grande!";
+      result.style.color = "red";
+    }
+  });
+</script> 
+</body>
+</html>

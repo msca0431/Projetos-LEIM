@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+<head lang="en">
+    <meta charset="UTF-8">
+    <title> Canvas - Desenhar Círculos e Elipses </title>
+</head>
+
+<body>
+    <canvas id="myCanvas" width="400" height="300" style="border:1px solid #000000;"></canvas>
+    <script>
+        // Get the HTML canvas element with the ID "myCanvas"
+        let c = document.getElementById("myCanvas");
+
+        // Get a 2D rendering context for the canvas
+        let ctx = c.getContext("2d");
+
+        // Save the current drawing context state
+        ctx.save();
+
+        // Translate the origin of the context to (150, 150)
+        ctx.translate(150, 150);
+
+        // Scale the context, stretching the x-axis by 2 and leaving the y-axis unchanged
+        ctx.scale(2, 1);
+
+        // Set the fill color to green
+        ctx.fillStyle = "green";
+
+        // Start a new drawing path
+        ctx.beginPath();
+
+        // Draw a filled ellipse centered at (0, 0), with a horizontal radius of 40, and a full ellipse (0 to 2 * Math.PI) in counterclockwise direction
+        ctx.arc(0, 0, 40, 0, 2 * Math.PI, true);
+
+        // Close the path by connecting the last point to the starting point
+        ctx.closePath();
+
+        // Fill the ellipse with the green color
+        ctx.fill();
+
+        // Restore the context to its previous state (before translation and scaling)
+        ctx.restore();
+
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Menu Mobile First</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Font Awesome pour les icônes -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    /* Personnalisation légère */
+    .navbar-brand {
+      font-weight: bold;
+    }
+    .navbar-toggler {
+      border: none;
+    }
+  </style>
+</head>
+<body>
+  <!-- Menu de navigation -->
+  <nav class="navbar navbar-expand-md navbar-light bg-light">
+    <div class="container">
+      <!-- Logo/Brand (toujours visible) -->
+      <a class="navbar-brand" href="#">
+        <i class="fas fa-rocket me-2"></i> MeuSite
+      </a>
+
+      <!-- Bouton "hamburger" pour mobile (visible uniquement sur <768px) -->
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainMenu" aria-controls="mainMenu" aria-expanded="false" aria-label="Menu principal">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <!-- Liens du menu (collapsible) -->
+      <div class="collapse navbar-collapse" id="mainMenu">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link active" href="#" aria-current="page">
+              <i class="fas fa-home me-1"></i> Home
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">
+              <i class="fas fa-info-circle me-1"></i> About me
+            </a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <i class="fas fa-box me-1"></i> Services
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="#">Service 1</a></li>
+              <li><a class="dropdown-item" href="#">Service 2</a></li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">
+              <i class="fas fa-envelope me-1"></i> Contact
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Contenu de la page -->
+  <div class="container py-4">
+    <h1>Bem-vindo ao meu site!</h1>
+    <p>Este menu está otimizado para dispositivos móveis e adapta-se a todos os ecrãs.</p>
+  </div>
+
+  <!-- Bootstrap JS (nécessaire pour le menu collapsible) -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

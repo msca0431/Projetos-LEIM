@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+
+<body>
+    <script>
+
+        let Person = (function () {
+            let _privateFields = new WeakMap();
+            class Person {
+                constructor(firstname, lastname, age, eyecolor) {
+                    this.firstname = firstname;
+                    this._lastname = lastname;
+                    _privateFields.set(this, { age }); //{age: age} = {age: age}
+                    this.eyecolor = eyecolor;
+                }
+                get lastname() {
+                    return this._lastname;
+                }
+
+                set lastname(name) {
+                    this._lastname = name;
+                }
+
+                walk() {
+                    console.log(this.firstname + ' is walking.');
+                }
+
+                getAge() {
+                    return _privateFields.get(this).age;
+                }
+            }
+            return Person;
+        })();
+
+        let bob = new Person("Bob", "Rilly", "20", "green");
+        console.log(bob.getAge());  // Output: 20
+        console.log(_privateFields.get(bob)); // Error
+    </script>
+</body>
+
+</html>

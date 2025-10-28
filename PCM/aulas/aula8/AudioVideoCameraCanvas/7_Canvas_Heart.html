@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+
+<body>
+    <canvas id="myCanvas" width="400" height="300" style="border:1px solid #000000;"></canvas>
+    <script>
+        let c = document.getElementById("myCanvas");
+        let ctx = c.getContext("2d");
+
+        function Heart(x, y, w, c) {
+            // Calculate the height, horizontal radius, and angle for the heart shape
+            let h = w * 0.7;            // Calculate the height of the heart
+            let drx = w / 4;            // Calculate the horizontal radius of the arcs
+            let ang = 0.25 * Math.PI;    // Calculate the angle for creating the arcs
+
+            // Calculate the x-coordinates of the left and right arc centers
+            let leftctrx = x - drx;
+            let rightctrx = x + drx;
+
+            // Calculate the coordinates of the bottom center point of the heart
+            let cx = rightctrx + drx * Math.cos(ang);
+            let cy = y + drx * Math.sin(ang);
+
+            // Set the fill color for the heart shape
+            ctx.fillStyle = c;
+
+            // Start a new path for drawing the heart
+            ctx.beginPath();
+
+            // Move the pen to the specified starting point (x, y)
+            ctx.moveTo(x, y);
+
+            // Draw the left arc of the heart in a counterclockwise direction
+            ctx.arc(leftctrx, y, drx, 0, Math.PI - ang, true);
+
+            // Draw a straight line to the bottom point of the heart
+            ctx.lineTo(x, y + h);
+
+            // Draw a line to the right-bottom point of the heart
+            ctx.lineTo(cx, cy);
+
+            // Draw the right arc of the heart in a counterclockwise direction
+            ctx.arc(rightctrx, y, drx, ang, Math.PI, true);
+
+            // Close the path by connecting the last point to the starting point
+            ctx.closePath();
+
+            // Fill the heart shape with the specified color
+            ctx.fill();
+        }
+
+        function HeartAlt(x, y, w, c) {
+            // Calculate the height of the heart
+            let h = w * 0.7;
+
+            // Calculate the horizontal radius of the arcs
+            let drx = w / 4; 
+
+            // Define an angle in radians (0.25 * π) for creating arcs
+            let ang = 0.25 * Math.PI;
+
+            // Calculate the x-coordinate for the left arc's center
+            let leftctrx = x - drx;
+
+            // Calculate the x-coordinate for the right arc's center
+            let rightctrx = x + drx;
+
+            // Calculate the x and y coordinates for a point used in the shape
+            let sx = leftctrx + drx * Math.cos(Math.PI - ang);
+            let sy = y + drx * Math.sin(Math.PI - ang);
+
+            // Set the fill color for the shape
+            ctx.fillStyle = c;
+
+            // Start a new path for drawing the heart
+            ctx.beginPath();
+
+            // Move the current drawing position to the specified (x, y) coordinates
+            ctx.moveTo(x, y);
+
+            // Draw the left arc of the heart
+            ctx.arc(leftctrx, y, drx, Math.PI - ang, 2 * Math.PI);
+
+            // Draw the right arc of the heart
+            ctx.arc(rightctrx, y, drx, Math.PI, ang);
+
+            // Draw a line to the bottom point of the heart
+            ctx.lineTo(x, y + h);
+
+            // Draw a line to a point to complete the shape
+            ctx.lineTo(sx, sy);
+
+            // Close the path by connecting the last point to the starting point
+            ctx.closePath();
+
+            // Fill the heart shape with the specified color
+            ctx.fill();
+        }
+
+        HeartAlt(100, 100, 100, "pink");
+    </script>
+</body>
+
+</html>

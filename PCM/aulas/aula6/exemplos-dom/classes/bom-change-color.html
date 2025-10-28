@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Mouse Event</title>
+</head>
+<body>
+  <p>Mexe o rato na página !</p>
+</body>
+
+<script>
+  document.body.addEventListener("mousemove", (e) => {
+    const x = e.clientX;
+    const y = e.clientY;
+    const cor = `rgb(${x % 255}, ${y % 255}, ${(x + y) % 255})`;
+    document.body.style.backgroundColor = cor;
+  });
+</script>
+</html>

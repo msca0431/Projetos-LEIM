@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bottom Navbar Mobile</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    /* Estilo para o menu inferior (visível apenas em dispositivos móveis) */
+    .bottom-nav {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: white;
+      border-top: 1px solid #dee2e6;
+      padding: 0.5rem 0;
+      z-index: 1000;
+      box-shadow: 0 -2px 5px rgba(0,0,0,0.1);
+    }
+    .bottom-nav .nav-link {
+      padding: 0.5rem;
+      text-align: center;
+      color: #6c757d;
+    }
+    .bottom-nav .nav-link.active {
+      color: #0d6efd;
+    }
+    /* Cache le menu bottom sur desktop */
+    @media (min-width: 768px) {
+      .bottom-nav {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Conteudo principal -->
+  <div class="container pb-5">
+    <h1 class="my-4">A minha Aplicação</h1>
+    <p>Conteúdo da página...</p>
+  </div>
+
+  <!-- Menu bottom (visível só em mobile) -->
+  <nav class="bottom-nav d-md-none">
+    <div class="container">
+      <ul class="nav justify-content-around">
+        <li class="nav-item">
+          <a class="nav-link active" href="#" aria-current="page">
+            <i class="fas fa-home fa-lg"></i>
+            <div class="small">Home</div>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">
+            <i class="fas fa-search fa-lg"></i>
+            <div class="small">Pesquisa</div>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">
+            <i class="fas fa-plus-square fa-lg"></i>
+            <div class="small">Adicionar</div>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">
+            <i class="fas fa-heart fa-lg"></i>
+            <div class="small">Favorito</div>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">
+            <i class="fas fa-user fa-lg"></i>
+            <div class="small">Perfil</div>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+<!-- Menu clássico (para desktop) -->
+  <nav class="navbar navbar-expand-md navbar-light bg-light d-none d-md-block">
+    <div class="container">
+      <a class="navbar-brand" href="#">MeuSite</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainMenu">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="mainMenu">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">Pesquisa</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">Perfil</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

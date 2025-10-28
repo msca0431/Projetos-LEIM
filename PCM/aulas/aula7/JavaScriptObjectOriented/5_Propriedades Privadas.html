@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+
+<body>
+    <script>
+        function Person(firstname, lastname, age, eyecolor) {
+            this.firstname = firstname;
+            this.lastname = lastname;
+            this.eyecolor = eyecolor;
+            let ag = age;
+
+            this.getAge = function () {
+                return ag;
+            };
+
+            this.setAge = function (age) {
+                changeAge(age);
+            };
+
+            let changeAge = function (age) {
+                ag = age;
+            };
+        }
+
+        Person.prototype.changeName = function (name) {
+            this.lastname = name;
+        };
+
+        Person.prototype.getName = function () {
+            return this.lastname;
+        };
+
+        let myFather = new Person("John", "Rilly", "50", "blue");
+        console.log(myFather.ag);             // Output: undefined
+        console.log(myFather.getAge());       // Output: 50
+        myFather.setAge(35);
+        console.log(myFather.getAge());       // Ouput: 35
+        myFather.changeAge(37);               // Erro
+
+    </script>
+</body>
+
+</html>

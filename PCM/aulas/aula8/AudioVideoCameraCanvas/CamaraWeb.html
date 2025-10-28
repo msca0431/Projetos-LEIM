@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+
+<body>
+    <h1>Simple web camera display demo</h1>
+    <video id="video" width="640" height="480" autoplay></video>
+    <script>
+        // This JavaScript code starts running when the DOM content is fully loaded.
+        window.addEventListener("DOMContentLoaded", WebCameraVideo, false);
+        
+        // Define the function to set up the webcam video.
+        function WebCameraVideo() {
+            // Get a reference to the video element in the HTML.
+            const video = document.getElementById("video");
+            
+            // Define an object to specify that we want video from the user's webcam.
+            const videoObj = { "video": true };
+            
+            // Define a function to handle errors when accessing the webcam.
+            const errBack = function (error) {
+                console.log("Video capture error: ", error.code);
+            };
+            
+            // Define a function to handle the successful acquisition of the video stream.
+            const getStream = function (stream) {
+                // Set the video element's source to the acquired video stream.
+                video.srcObject = stream;
+                // Start playing the video.
+                video.play();
+            };
+            
+            // Use the getUserMedia function to request access to the user's webcam.
+            navigator.mediaDevices.getUserMedia(videoObj)
+                .then(getStream) // If successful, call the getStream function.
+                .catch(errBack); // If there's an error, call the errBack function.
+        }
+    </script>
+</body>
+
+</html>

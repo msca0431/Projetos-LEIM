@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+
+<body>
+    <script>
+        let key1 = { foo: 1 };
+        let key2 = { bar: ['a', 'b', 'c'] };
+        let key3 = "string";
+
+        let x = new WeakMap([[key1, 'value 1'], [key2, 'value 2']]);
+        x.set(key3, "value 3"); //Uncaught TypeError: Invalid value used as weak map key
+
+        console.log(x.get(key1)); //Output: value 1
+        console.log(x.get(key2)); //Ouput: value 2
+    </script>
+</body>
+
+</html>

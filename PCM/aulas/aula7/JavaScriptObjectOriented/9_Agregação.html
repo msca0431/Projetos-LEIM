@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+
+<body>
+    <script>
+        class Company {
+            constructor(name) {
+                this.name = name;
+                this.theEmployees = [];
+
+            }
+
+            getName() {
+                return this.name;
+            }
+
+            toHireemployee(emp) {
+                this.theEmployees.push(emp);
+            }
+        }
+
+        class Person {
+            constructor(name) {
+                this.name = name;
+            }
+
+            getName() {
+                return this.name;
+            }
+        }
+
+        //Old school version using "prototype" directly.
+        // function Company(name) {
+        //     this.name = name;
+        //     this.theEmployees = [];
+        // }
+
+        // Company.prototype.getName = function () {
+        //     return this.name;
+        // };
+
+        // Company.prototype.toHireEmployee = function (emp) {
+        //     this.theEmployees.push(emp);
+        // };
+
+        // function Person(name) {
+        //     this.name = name;
+        // }
+
+        // Person.prototype.getName = function () {
+        //     return this.name;
+        // };
+
+
+        let isel = new Company("ISEL");
+        let rui = new Person("Pedro");
+        isel.toHireemployee(rui);
+        console.log(isel.theEmployees[0].name);
+    </script>
+</body>
+
+</html>

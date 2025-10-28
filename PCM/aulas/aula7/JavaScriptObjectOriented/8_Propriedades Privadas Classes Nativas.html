@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+
+<body>
+    <script>
+        class ClassWithPrivateField {
+            #privateField;
+            constructor() {
+                this.#privateField = 42;
+                //this.#randomField = 666; //Syntax error
+            }
+            get privateField() {
+                return this.#privateField;
+            }
+            set privateField(privateField) {
+                this.#privateField = privateField;
+            }
+        }
+
+        const instance = new ClassWithPrivateField();
+        instance.privateField = 43;
+        console.log(instance.privateField);
+        //console.log(instance.#privateField); //Syntax error
+    </script>
+</body>
+
+</html>
